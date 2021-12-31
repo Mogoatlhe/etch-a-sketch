@@ -1,9 +1,10 @@
 
+const clear = document.getElementById("clear");
 const container = document.getElementById("container");
 const containerHeight = container.clientHeight;
 const containerWidth = container.clientWidth;
 
-let row = 64;
+let row = 100;
 
 function setHoverState(square){
 
@@ -30,6 +31,13 @@ function createGrid(row){
     [...squares].forEach((square) => {
         setHoverState(square);
     });
+
+    clear.addEventListener("click", () => {
+        [...squares].forEach((square) => {
+            square.classList.remove("black-background");
+        });    
+    });
 }
+
 
 createGrid(row);
