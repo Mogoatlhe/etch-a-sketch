@@ -16,7 +16,7 @@ body{
 #container{
     width: 464px;
     height: 464px;
-    border: red solid 1px;
+    border: black solid 1px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -26,4 +26,8 @@ body{
     height: 3vh;
     width: 50vh;
     border: solid 1px black;
+}
+
+.black-background{
+    background-color: black;
 }
