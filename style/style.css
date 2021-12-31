@@ -1,0 +1,29 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 3rem;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    width: 464px;
+    height: 464px;
+    border: red solid 1px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square{
+    display: flex;
+    height: 3vh;
+    width: 50vh;
+    border: solid 1px black;
+}
