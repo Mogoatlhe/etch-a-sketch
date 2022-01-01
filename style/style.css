@@ -66,8 +66,8 @@ body{
 
 
 #grid{
-    width: 350px;
-    height: 350px;
+    width: 500px;
+    height: 500px;
     border-right: none;
     display: flex;
     flex-wrap: wrap;

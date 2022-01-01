@@ -2,7 +2,7 @@
 const grid = document.getElementById("grid");
 const clear = document.getElementById("clear");
 const slider = document.getElementById("slider");
-const gridHeight = grid.clientHeight;
+const gridWidth = grid.clientWidth;
 
 slider.addEventListener("input", () => {
     
@@ -36,11 +36,12 @@ function createGrid(){
     const row = parseInt(getGridRow());
     const squareCount = row ** 2;
 
+    console.log(gridWidth);
     for(let i = 0; i < squareCount; i++){
         let square = document.createElement("div");
         square.classList.add("square");
-        square.setAttribute("style", `width: ${gridHeight / row}px; 
-            height: ${gridHeight / row}px`);
+        square.setAttribute("style", `width: ${gridWidth / row}px; 
+            height: ${gridWidth / row}px`);
         
         grid.appendChild(square);
     }
