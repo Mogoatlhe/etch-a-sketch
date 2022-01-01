@@ -1,7 +1,19 @@
 
-const clear = document.getElementById("clear");
 const grid = document.getElementById("grid");
+const clear = document.getElementById("clear");
+const slider = document.getElementById("slider");
 const gridHeight = grid.clientHeight;
+
+slider.addEventListener("input", () => {
+    
+    const squares = document.getElementsByClassName("square");
+
+    [...squares].forEach((square) => {
+        grid.removeChild(square);
+    });
+
+    createGrid();
+});
 
 function setHoverState(square){
 
@@ -12,7 +24,6 @@ function setHoverState(square){
 }
 
 function getGridRow(){
-    const slider = document.getElementById("slider");
     const sliderValue = slider.value;
 
     document.getElementById("slider-value").textContent = sliderValue;
@@ -45,6 +56,8 @@ function createGrid(){
         });    
     });
 }
+
+
 
 
 createGrid();
