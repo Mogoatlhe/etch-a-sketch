@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
 html {
     box-sizing: border-box;
-    font-family: 'Alfa Slab One', cursive;
-    font-size: 3rem;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2rem;
 }
 
 *, *::before, *::after {
@@ -14,20 +16,84 @@ body{
 }
 
 #container{
-    width: 464px;
-    height: 464px;
-    border: black solid 1px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#top-controllers{
+    width: 370px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#remove{
+    height: 196px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#remove button{
+    border-radius: 0;
+    font-size: 0.8rem;
+    font-family: 'Abril Fatface', cursive;
+    height: 60px;
+    width: 160px;
+}
+
+#clear{
+    border: solid black 1px;
+    background-color: black;
+    color: white;
+}
+
+#eraser{
+    border: solid black 1px;
+    background-color: white;
+    color: black;
+}
+
+#grid-size{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 180px;
+}
+
+
+#grid{
+    width: 370px;
+    height: 350px;
+    border-right: none;
     display: flex;
     flex-wrap: wrap;
 }
 
 .square{
     display: flex;
-    height: 3vh;
-    width: 50vh;
     border: solid 1px black;
 }
 
 .black-background{
     background-color: black;
+}
+
+.left-border{
+    border-left: solid 1px black;
+}
+
+.right-border{
+    border-right: solid 1px black;
+}
+
+.top-border{
+    border-top: solid 1px black;
+}
+
+.bottom-border{
+    border-bottom: solid 1px black;
 }

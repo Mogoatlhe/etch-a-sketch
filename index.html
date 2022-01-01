@@ -10,10 +10,31 @@
 </head>
 <body>
     
-    <button id = clear>Clear Grid</button>
-    <div id = "container"></div>
+    <div id = "container">
+        
+        <div id = "top-controllers">
+            <div id = "remove">
+                <button id = clear>clear grid</button>
+                <button id = eraser>eraser</button>
+            </div>
+            <div id = "grid-size">
+                <div id = "grid-size-text">grid-size</div>
+                <div id = "slider-container">
+                    <input id = "slider" type = "range" min = 1 max = "100" value = 16>
+                </div>
+                <span id = "slider-value">16</span>
+            </div>
+        </div>
+        <div id = "grid"></div>
+        <div id = "additional-features">
+            <button>random colour</button>
+            <button>build colour</button>
+            <button>choose colour</button>
+        </div>
+        
+    </div>
+        
     <script src = "script/script.js" use strict defer>
-
     </script>
 </body>
 </html>

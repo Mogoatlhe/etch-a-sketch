@@ -1,10 +1,7 @@
 
 const clear = document.getElementById("clear");
-const container = document.getElementById("container");
-const containerHeight = container.clientHeight;
-const containerWidth = container.clientWidth;
-
-let row = 100;
+const grid = document.getElementById("grid");
+const gridHeight = grid.clientHeight;
 
 function setHoverState(square){
 
@@ -14,17 +11,27 @@ function setHoverState(square){
 
 }
 
-function createGrid(row){
+function getGridRow(){
+    const slider = document.getElementById("slider");
+    const sliderValue = slider.value;
 
+    document.getElementById("slider-value").textContent = sliderValue;
+
+    return sliderValue;
+}
+
+function createGrid(){
+
+    const row = parseInt(getGridRow());
     const squareCount = row ** 2;
 
     for(let i = 0; i < squareCount; i++){
         let square = document.createElement("div");
         square.classList.add("square");
-        square.setAttribute("style", `width: ${containerHeight / row}px; 
-            height: ${containerHeight / row}px`);
+        square.setAttribute("style", `width: ${gridHeight / row}px; 
+            height: ${gridHeight / row}px`);
         
-        container.appendChild(square);
+        grid.appendChild(square);
     }
 
     const squares = document.getElementsByClassName("square");
@@ -40,4 +47,4 @@ function createGrid(row){
 }
 
 
-createGrid(row);
+createGrid();
