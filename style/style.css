@@ -109,6 +109,24 @@ body{
     font-family: 'Abril Fatface', cursive;
 }
 
+#colour-picker-container{
+    display: flex;
+    flex-direction: column;
+    font-size: 0.45rem;
+    align-items: center;
+}
+
+#choose-colour{
+    appearance: none;
+    border: none ;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+}
+#choose-colour::-webkit-color-swatch{
+    border-radius: 50% !important;      
+}
+
 button{
     cursor: pointer;
 }

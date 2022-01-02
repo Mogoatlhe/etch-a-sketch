@@ -10,6 +10,7 @@ const slider = document.getElementById("slider");
 const eraser = document.getElementById("eraser");
 const randomColour = document.getElementById("random-colour");
 const buildColourbtn = document.getElementById("build-colour");
+const chooseColour = document.getElementById("choose-colour");
 
 
 slider.addEventListener("input", () => {
@@ -52,7 +53,11 @@ randomColour.addEventListener("click", () => {
 
 buildColourbtn.addEventListener("click", () => {
     backgroundColor = "build";
-})
+});
+
+chooseColour.addEventListener("input", () => {
+    backgroundColor = chooseColour.value;
+});
 
 function setBuildColour(rgbValue){
 
@@ -128,6 +133,8 @@ function setHoverState(square){
             setBuildColour(rgbValue);
             
             square.style["background-color"] = `rgb(${buildValue}, ${buildValue}, ${buildValue})`;
+        }else if(backgroundColor != null){
+            square.style["background-color"] = backgroundColor;
         }else{
             // rgb values
             r = getRandom();
