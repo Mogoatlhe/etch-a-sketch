@@ -117,14 +117,6 @@ button{
     border: solid 1px black;
 }
 
-.black-background{
-    background-color: black;
-}
-
-.white-background{
-    background-color: white;
-}
-
 .eraser-active{
     /* !important because the id attribute above, #eraser, 
     has higher precedence.

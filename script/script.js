@@ -1,11 +1,13 @@
 
 let grid = document.getElementById("grid");
 let backgroundColor = "black";
+let tempColour = backgroundColor;
 
 const gridWidth = grid.clientWidth;
 const clear = document.getElementById("clear");
 const slider = document.getElementById("slider");
 const eraser = document.getElementById("eraser");
+const randomColour = document.getElementById("random-colour");
 
 
 slider.addEventListener("mouseup", () => {
@@ -28,15 +30,25 @@ eraser.addEventListener("click", () =>{
 
     eraser.classList.toggle("eraser-active");
 
+    backgroundColor = tempColour;
+
     if(backgroundColor === "black"){
         backgroundColor = "white";
-        eraser.textContent = "cancel eraser";
+        eraser.textContent = "back to black";
     }else if(backgroundColor === "white"){
         backgroundColor = "black";
         eraser.textContent = "eraser"
     }
+
+    tempColour = backgroundColor;
     
-})
+});
+
+randomColour.addEventListener("click", () => {
+    backgroundColor = null;
+
+    
+});
 
 
 function resetGrid(){
@@ -52,12 +64,24 @@ function resetGrid(){
 
 }
 
+function getRandom(){
+    return Math.floor(Math.random() * 255);
+}
+
 function setHoverState(square){
 
     square.addEventListener("mouseover", () => {
-        square.classList.remove("black-background");
-        square.classList.remove("white-background");
-        square.classList.add(`${backgroundColor}-background`);
+        
+        if(backgroundColor === "white" || backgroundColor === "black"){
+            square.style["background-color"] = backgroundColor;
+        }else{
+            // rgb values
+            r = getRandom();
+            g = getRandom();
+            b = getRandom();
+
+            square.style["background-color"] = `rgb(${r}, ${g}, ${b})`;
+        }
     });
 
 }
@@ -95,8 +119,5 @@ function createGrid(){
         });    
     });
 }
-
-
-
 
 createGrid();
