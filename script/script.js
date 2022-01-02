@@ -1,19 +1,36 @@
 
-const grid = document.getElementById("grid");
+let grid = document.getElementById("grid");
 const clear = document.getElementById("clear");
 const slider = document.getElementById("slider");
 const gridWidth = grid.clientWidth;
 
-slider.addEventListener("input", () => {
+slider.addEventListener("mouseup", () => {
     
-    const squares = document.getElementsByClassName("square");
+    // const squares = document.getElementsByClassName("square");
 
-    [...squares].forEach((square) => {
-        grid.removeChild(square);
-    });
+    // [...squares].forEach((square) => {
+    //     grid.removeChild(square);
+    // });
+    
+    resetGrid();
 
     createGrid();
+
+    document.activeElement.blur();
 });
+
+function resetGrid(){
+
+    const additionalFeatures = document.getElementById("additional-features");
+    const container = document.getElementById("container");
+    
+    grid = container.removeChild(grid);
+    grid = document.createElement("div");
+    grid.setAttribute("id", "grid");
+
+    container.insertBefore(grid, additionalFeatures);
+
+}
 
 function setHoverState(square){
 
@@ -36,7 +53,6 @@ function createGrid(){
     const row = parseInt(getGridRow());
     const squareCount = row ** 2;
 
-    console.log(gridWidth);
     for(let i = 0; i < squareCount; i++){
         let square = document.createElement("div");
         square.classList.add("square");
