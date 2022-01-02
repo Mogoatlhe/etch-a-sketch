@@ -1,8 +1,12 @@
 
 let grid = document.getElementById("grid");
+let backgroundColor = "black";
+
+const gridWidth = grid.clientWidth;
 const clear = document.getElementById("clear");
 const slider = document.getElementById("slider");
-const gridWidth = grid.clientWidth;
+const eraser = document.getElementById("eraser");
+
 
 slider.addEventListener("mouseup", () => {
     
@@ -18,6 +22,22 @@ slider.addEventListener("mouseup", () => {
 
     document.activeElement.blur();
 });
+
+
+eraser.addEventListener("click", () =>{
+
+    eraser.classList.toggle("eraser-active");
+
+    if(backgroundColor === "black"){
+        backgroundColor = "white";
+        eraser.textContent = "cancel eraser";
+    }else if(backgroundColor === "white"){
+        backgroundColor = "black";
+        eraser.textContent = "eraser"
+    }
+    
+})
+
 
 function resetGrid(){
 
@@ -35,7 +55,9 @@ function resetGrid(){
 function setHoverState(square){
 
     square.addEventListener("mouseover", () => {
-        square.classList.add("black-background");
+        square.classList.remove("black-background");
+        square.classList.remove("white-background");
+        square.classList.add(`${backgroundColor}-background`);
     });
 
 }

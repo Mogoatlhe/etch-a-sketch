@@ -79,6 +79,7 @@ body{
     width: 20px;
     border: 1px solid black;
     background-color: white;
+    cursor: pointer;
 
 }
 
@@ -89,6 +90,7 @@ body{
     border-right: none;
     display: flex;
     flex-wrap: wrap;
+    border: 1px black solid;
 }
 
 #additional-features{
@@ -117,4 +119,15 @@ button{
 
 .black-background{
     background-color: black;
+}
+
+.white-background{
+    background-color: white;
+}
+
+.eraser-active{
+    /* !important because the id attribute above, #eraser, 
+    has higher precedence.
+     */
+    font-size: 0.6rem !important;
 }
