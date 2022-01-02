@@ -115,6 +115,7 @@ button{
 
 .square{
     border: solid 1px black;
+    background-color: white;
 }
 
 .eraser-active{

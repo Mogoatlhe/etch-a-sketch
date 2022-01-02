@@ -2,15 +2,17 @@
 let grid = document.getElementById("grid");
 let backgroundColor = "black";
 let tempColour = backgroundColor;
+let buildValue = 0;
 
 const gridWidth = grid.clientWidth;
 const clear = document.getElementById("clear");
 const slider = document.getElementById("slider");
 const eraser = document.getElementById("eraser");
 const randomColour = document.getElementById("random-colour");
+const buildColourbtn = document.getElementById("build-colour");
 
 
-slider.addEventListener("mouseup", () => {
+slider.addEventListener("input", () => {
     
     // const squares = document.getElementsByClassName("square");
 
@@ -34,7 +36,7 @@ eraser.addEventListener("click", () =>{
 
     if(backgroundColor === "black"){
         backgroundColor = "white";
-        eraser.textContent = "back to black";
+        eraser.textContent = "black pen";
     }else if(backgroundColor === "white"){
         backgroundColor = "black";
         eraser.textContent = "eraser"
@@ -46,9 +48,55 @@ eraser.addEventListener("click", () =>{
 
 randomColour.addEventListener("click", () => {
     backgroundColor = null;
-
-    
 });
+
+buildColourbtn.addEventListener("click", () => {
+    backgroundColor = "build";
+})
+
+function setBuildColour(rgbValue){
+
+    if(parseInt(rgbValue) === 0){
+        buildValue = rgbValue;
+        return;
+    }
+    
+    if(rgbValue === 255){
+        buildValue = 229;
+    }else if(rgbValue >= 229){
+        buildValue = 204;
+    }else if (rgbValue >= 204){
+        buildValue = 178;
+    }else if (rgbValue >= 178){
+        buildValue = 153;
+    }else if (rgbValue >= 153){
+        buildValue = 127
+    }else if (rgbValue >= 127){
+        buildValue = 102;
+    }else if (rgbValue >= 102){
+        buildValue = 76;
+    }else if(rgbValue >= 76){
+        buildValue = 50;
+    }else if (rgbValue >= 50){
+        buildValue = 25;
+    }else if(rgbValue >= 25){
+        buildValue = 0;
+    }
+}
+
+function getBackgroundColor(colour){
+
+    if(colour === "" || colour === "white"){
+        return 255;
+    }
+
+    if(colour === "black"){
+        return 0;
+    }
+
+    return parseInt(colour.slice(4, colour.indexOf(',')));
+
+}
 
 
 function resetGrid(){
@@ -74,6 +122,12 @@ function setHoverState(square){
         
         if(backgroundColor === "white" || backgroundColor === "black"){
             square.style["background-color"] = backgroundColor;
+        }else if(backgroundColor == "build"){
+            let rgbValue = getBackgroundColor(square.style["background-color"]);
+
+            setBuildColour(rgbValue);
+            
+            square.style["background-color"] = `rgb(${buildValue}, ${buildValue}, ${buildValue})`;
         }else{
             // rgb values
             r = getRandom();
