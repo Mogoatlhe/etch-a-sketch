@@ -153,6 +153,7 @@ function createGrid(){
     const row = parseInt(getGridRow());
     const squareCount = row ** 2;
 
+    // creates grid squares
     for(let i = 0; i < squareCount; i++){
         let square = document.createElement("div");
         square.classList.add("square");
@@ -169,7 +170,7 @@ function createGrid(){
 
     clear.addEventListener("click", () => {
         [...squares].forEach((square) => {
-            square.classList.remove("black-background");
+            square.style["background-color"] = "white";
         });    
     });
 }
