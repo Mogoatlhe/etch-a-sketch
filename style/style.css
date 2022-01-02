@@ -124,7 +124,7 @@ body{
     background-color: transparent;
 }
 #choose-colour::-webkit-color-swatch{
-    border-radius: 50% !important;      
+    border-radius: 50%;      
 }
 
 button{
